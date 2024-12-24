@@ -1,0 +1,17 @@
+<h1>Danh sách sự kiện</h1>
+<table>
+    <tr>
+        <th>Tên</th>
+        <th>Địa điểm</th>
+        <th>Thao tác</th>
+    </tr>
+    {% for event in events %}
+    <tr>
+        <td>{{ event.name }}</td>
+        <td>{{ event.location }}</td>
+        <td>
+            <a href="{% url 'event_detail' event.id %}">Chi tiết</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

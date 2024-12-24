@@ -1,0 +1,18 @@
+<h1>Quản lý sự kiện</h1>
+<a href="{% url 'admin_event_create' %}">Tạo sự kiện mới</a>
+<table>
+    <tr>
+        <th>Tên</th>
+        <th>Mô tả</th>
+        <th>Thao tác</th>
+    </tr>
+    {% for event in events %}
+    <tr>
+        <td>{{ event.name }}</td>
+        <td>{{ event.description }}</td>
+        <td>
+            <a href="{% url 'admin_event_delete' event.id %}">Xóa</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

@@ -1,0 +1,15 @@
+<h1>Tạo sự kiện mới</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="name">Tên sự kiện:</label>
+    <input type="text" name="name" required>
+    <label for="description">Mô tả:</label>
+    <textarea name="description"></textarea>
+    <label for="start_time">Thời gian bắt đầu:</label>
+    <input type="datetime-local" name="start_time">
+    <label for="end_time">Thời gian kết thúc:</label>
+    <input type="datetime-local" name="end_time">
+    <label for="location">Địa điểm:</label>
+    <input type="text" name="location">
+    <button type="submit">Tạo</button>
+</form>

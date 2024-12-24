@@ -1,0 +1,7 @@
+<h1>Chi tiết sự kiện</h1>
+<p>Tên: {{ event.name }}</p>
+<p>Mô tả: {{ event.description }}</p>
+<p>Thời gian: {{ event.start_time }} - {{ event.end_time }}</p>
+<p>Địa điểm: {{ event.location }}</p>
+<a href="{% url 'ticket_purchase' event.id %}">Mua vé</a>
+<a href="{% url 'event_feedback' event.id %}">Đánh giá</a>
