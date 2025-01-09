@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Xác nhận mua vé</title>
+</head>
+<body>
+    <h1>Xác nhận mua vé</h1>
+    <p>Bạn có chắc chắn muốn mua vé cho sự kiện "{{ event.name }}" không?</p>
+    <p>Thời gian: {{ event.start_time }} - {{ event.end_time }}</p>
+    <p>Địa điểm: {{ event.location }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Xác nhận</button>
+    </form>
+    <a href="{% url 'event_detail' event.id %}">Hủy</a>
+</body>
+</html>

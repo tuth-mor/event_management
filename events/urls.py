@@ -1,16 +1,24 @@
 from django.urls import path
-from events.views import admin_views, user_views
+from events.views import (
+    register_user,
+    login_user,
+    logout_user,
+    event_register,
+    event_list,
+    event_detail,
+    ticket_purchase,
+    event_feedback,
+    user_notifications,
+)
 
 urlpatterns = [
-    # Admin URLs
-    path('admin/events/', admin_views.admin_event_list, name='admin_event_list'),
-    path('admin/events/create/', admin_views.admin_event_create, name='admin_event_create'),
-    path('admin/events/delete/<int:event_id>/', admin_views.admin_event_delete, name='admin_event_delete'),
-
-    # User URLs
-    path('', user_views.event_list, name='event_list'),
-    path('events/<int:event_id>/', user_views.event_detail, name='event_detail'),
-    path('events/<int:event_id>/purchase/', user_views.ticket_purchase, name='ticket_purchase'),
-    path('events/<int:event_id>/feedback/', user_views.event_feedback, name='event_feedback'),
-    path('notifications/', user_views.user_notifications, name='user_notifications'),
+    path('register/', register_user, name='register'),
+    path('login/', login_user, name='login'),
+    path('logout/', logout_user, name='logout'),
+    path('events/register/', event_register, name='event_register'),
+    path('', event_list, name='event_list'),
+    path('<int:event_id>/', event_detail, name='event_detail'),
+    path('<int:event_id>/purchase/', ticket_purchase, name='ticket_purchase'),
+    path('<int:event_id>/feedback/', event_feedback, name='event_feedback'),
+    path('notifications/', user_notifications, name='user_notifications'),
 ]

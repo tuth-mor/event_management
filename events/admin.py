@@ -4,7 +4,9 @@ from .models import User, Event, Category, Ticket, Feedback, Sponsor, Notificati
 # Register your models here.
 admin.site.register(User)
 admin.site.register(Event)
-admin.site.register(Category)
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name',)
 admin.site.register(Ticket)
 admin.site.register(Feedback)
 admin.site.register(Sponsor)
